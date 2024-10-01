@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizador de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #output {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            font-size: 2em;
+        }
+
+        .input-container {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="number"], input[type="color"] {
+            padding: 10px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personalize o Texto</h1>
+
+    <div class="input-container">
+        <label for="text-input">Texto:</label>
+        <input type="text" id="text-input" placeholder="Digite seu texto aqui">
+    </div>
+
+    <div class="input-container">
+        <label for="font-size-input">Tamanho da Fonte (px):</label>
+        <input type="number" id="font-size-input" placeholder="Ex: 20" min="10" max="100">
+    </div>
+
+    <div class="input-container">
+        <label for="color-input">Cor:</label>
+        <input type="color" id="color-input">
+    </div>
+
+    <div id="output">Texto Exemplo</div>
+
+    <script>
+        const textInput = document.getElementById('text-input');
+        const fontSizeInput = document.getElementById('font-size-input');
+        const colorInput = document.getElementById('color-input');
+        const output = document.getElementById('output');
+
+        textInput.addEventListener('input', () => {
+            output.textContent = textInput.value || 'Texto Exemplo';
+        });
+
+        fontSizeInput.addEventListener('input', () => {
+            output.style.fontSize = fontSizeInput.value + 'px' || '2em';
+        });
+
+        colorInput.addEventListener('input', () => {
+            output.style.color = colorInput.value;
+        });
+    </script>
+</body>
+</html>

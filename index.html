@@ -3,221 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customizador de Texto e Botão</title>
+    <title>Layout com Três Quadrados Personalizados</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+        /* Reseta as margens e o padding, e ajusta o box-sizing para incluir bordas e padding no tamanho total */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
 
+        /* Define as configurações de estilo do corpo da página */
+        body {
+            display: flex; /* Torna o corpo um contêiner flex */
+            justify-content: center; /* Centraliza horizontalmente o contêiner na tela */
+            align-items: center; /* Centraliza verticalmente o contêiner na tela */
+            min-height: 10vh; /* Define a altura mínima da página para ocupar toda a altura da tela */
+            background-color: #f0f0f0; /* Define a cor de fundo da página */
+            font-family: Arial, sans-serif; /* Define a fonte padrão da página */
+        }
+
+        /* Define o estilo do contêiner que contém as caixas */
         .container {
-            position: relative;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Define duas colunas de tamanhos iguais */
+            grid-template-rows: 1fr auto;   /* Define as linhas da grade */
+            column-gap: 100px;  /* Espaço entre os quadrados 1 e 2 */
+            row-gap: 0;        /* Sem espaço entre os quadrados 1, 2 e o quadrado 3 */
+            width: 100%;  /* Largura máxima da grade */
+            max-width: 1200px; /* Largura máxima quando a tela é maior */
+            height: 700px; /* Altura do contêiner */
+            margin-top: 10px; /* Espaço entre o topo da página e as caixas */
         }
 
-        .image-container {
-            position: relative; /* Habilita o posicionamento absoluto dentro */
-            margin-bottom: 20px;
-            width: calc(100% - 100px); /* Ajuste a largura conforme necessário */
+
+        /* Estilo específico para a primeira caixa */
+        .box1 {
+            background-color: #2ecc71; /* Cor da segunda caixa (verde) */
+            position: relative; /* Torna o box2 o contêiner de referência para os elementos absolutos */
+            display: flex; /* Flexbox para centralizar a imagem */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            height: 100%;
+        }
+        /* Imagem no box2 */
+        .box1 img {
+            width: 70%; /* A imagem ocupa 100% da largura da caixa */
+            height: auto; /* Mantém a proporção da imagem */
         }
 
-        .bottom-image-container {
-            position: absolute;
-            top: 120%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
+        /* Estilo específico para a segunda caixa */
+        .box2 {
+            background-color: #2ecc71; /* Cor da segunda caixa (verde) */
+            position: relative; /* Torna o box2 o contêiner de referência para os elementos absolutos */
+            display: flex; /* Flexbox para centralizar a imagem */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            height: 100%;
         }
 
-        .bottom-image-container img {
-            width: 100%;
-            height: 250;
+        /* Imagem no box2 */
+        .box2 img {
+            width: 74%; /* A imagem ocupa 100% da largura da caixa */
+            height: auto; /* Mantém a proporção da imagem */
         }
 
-        .inputs {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .inputs input[type="text"],
-        .inputs input[type="number"],
-        .inputs input[type="color"] {
-            padding: 10px;
-            font-size: 1em;
-        }
-
-        #output {
-            position: absolute;
-            bottom: 580px; /* Distância em relação à parte inferior da imagem */
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 4em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        .button-container {
-            margin-top: 20px;
-        }
-
-        /* Estilo do botão com borda circular */
+        /* Botão com estilo */
         #color-button {
-            position: absolute;
-            bottom: 200px; /* Distância em relação à parte inferior da imagem */
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 8px 66px;
-            background-color: #3498db;
-            color: white;
+            position: absolute; /* Posiciona o botão sobre a imagem */
+            bottom: 20px; /* Alinha o botão 20px acima da parte inferior da caixa */
+            left: 50%; /* Centraliza o botão horizontalmente */
+            transform: translateX(-50%); /* Ajusta a posição para que o centro do botão seja o ponto de referência */
+            padding: 10px 30px; /* Tamanho do botão */
+            background-color: #3498db; /* Cor do botão */
+            color: white; /* Cor do texto do botão */
             border: none;
             border-radius: 30px; /* Borda arredondada */
             font-size: 1em;
             cursor: pointer;
-            transition: background-color 0.3s ease;
             z-index: 10; /* Traz o botão para frente */
         }
 
-        /* Estilo para o pop-up */
-        .modal {
-            display: block; /* Mostra o modal por padrão */
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fundo escurecido */
+        /* Texto sobre a imagem no box2 */
+        #output {
+            position: absolute; /* Posiciona o texto sobre a imagem */
+            top: 100px; /* Alinha o texto 20px a partir do topo da caixa */
+            left: 50%; /* Centraliza o texto horizontalmente */
+            transform: translateX(-50%); /* Ajusta a posição para que o centro do texto seja o ponto de referência */
+            color: white; /* Cor do texto */
+            font-size: 1.5em; /* Tamanho do texto */
+            font-weight: bold; /* Negrito */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto */
+            z-index: 10; /* Traz o texto para frente */
         }
 
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 300px;
+        /* Estilo específico para a terceira caixa */
+        .box3 {
+
+            display: flex; /* Usa flexbox para alinhar o conteúdo da caixa */
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            align-items: center; /* Centraliza o conteúdo verticalmente */
+            color: white; /* Define a cor do texto */
+            font-size: 2em; /* Define o tamanho da fonte */
+            font-weight: bold; /* Deixa o texto em negrito */
+            height: 100%; /* A caixa ocupa todo o espaço disponível em altura */
+            grid-column: 1 / -1; /* Faz a caixa ocupar a largura de ambas as colunas */
+        }
+        
+        
+
+        /* Limita a altura e a proporção em telas maiores que 1600px */
+        @media (min-width: 1600px) {
+            .container {
+                max-height: 700px; /* Limita a altura máxima do contêiner em telas muito grandes */
+            }
+
+            .box1, .box2, .box3 {
+                height: 100%; /* As caixas ainda ocupam toda a altura */
+            }
         }
 
-        .modal-content p {
-            margin: 0;
-            padding: 10px 0;
-        }
+        /* Responsividade para telas menores */
+        @media (max-width: 960px) {
+            .container {
+                grid-template-columns: 1fr 1fr; /* Mantém duas colunas, mesmo em telas pequenas */
+                grid-template-rows: auto auto; /* Duas linhas: uma para as caixas 1 e 2, e outra para a caixa 3 */
+                height: auto; /* Ajusta a altura automaticamente, conforme o conteúdo */
+            }
 
-        .modal-content button {
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+            /* Ajuste das caixas 1 e 2 para manterem a proporção adequada */
+            .box1, .box2 {
+                width: 100%; /* As caixas ocupam a largura total disponível */
+                height: 300px; /* Define uma altura mínima razoável para as caixas em telas pequenas */
+            }
 
-        .modal-content button:hover {
-            background-color: #2980b9;
-        }
-
-        /* Desabilitar rolagem quando o modal estiver ativo */
-        body.modal-active {
-            overflow: hidden;
+            /* A terceira caixa permanece ocupando toda a largura abaixo das duas primeiras */
+            .box3 {
+                grid-column: 1 / -1; /* Continua ocupando a largura das duas colunas */
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Contêiner para as duas imagens superiores -->
-    <div class="container">
-        <!-- Imagem da esquerda -->
-        <div class="image-container">
-            <img src="src/tela.png" alt="Imagem Esquerda">
-        </div>
 
-        <!-- Imagem da direita com botão e texto fixos -->
-        <div class="image-container">
-            <img src="src/tela2.png" alt="Imagem Direita">
+    <!-- Contêiner principal que agrupa as caixas -->
+    <div class="container">
+        <!-- Caixa 1, com classe específica para personalização -->
+        <div class="box1">
+            <img src="src/tela1.png" alt="Imagem Esquerda">
+        </div>
+        <!-- Caixa 2, com classe específica para personalização -->
+        <div class="box2">
+            <img src="src/tela22.png" alt="Imagem Direita">
             <button id="color-button">Pagar</button>
             <div id="output">Texto Exemplo</div>
         </div>
-
-        <!-- Imagem inferior com inputs -->
-        <div class="bottom-image-container">
+        <!-- Caixa 3, com classe específica para personalização -->
+        <div class="box3">
             <img src="src/input.png" alt="Imagem Inferior">
-            <div class="inputs">
-                <div class="input-container">
-                    <label for="text-input">Texto:</label>
-                    <input type="text" id="text-input" placeholder="Digite seu texto aqui">
-                </div>
-
-                <div class="input-container">
-                    <label for="font-size-input">Tamanho da Fonte (px):</label>
-                    <input type="number" id="font-size-input" placeholder="Ex: 20" min="10" max="100">
-                </div>
-
-                <div class="input-container">
-                    <label for="color-input">Cor do Botão:</label>
-                    <input type="color" id="color-input" value="#00ff00">
-                </div>
-            </div>
         </div>
     </div>
 
-    <!-- Pop-up Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <p>Bem-vindo ao site!<br><br>
-                 Use os campos abaixo para mudar a cor do botão, e também o conteúdo e o tamanho do texto. Ajuste para que fiquem parecidos com a tela de pagamento à esquerda.<br><br>
-                Clique "OK" para continuar.</p>
-            <button id="close-modal">OK</button>
-        </div>
-    </div>
-
-    <script>
-        const textInput = document.getElementById('text-input');
-        const fontSizeInput = document.getElementById('font-size-input');
-        const colorInput = document.getElementById('color-input');
-        const output = document.getElementById('output');
-        const colorButton = document.getElementById('color-button');
-        const modal = document.getElementById('modal');
-        const closeModal = document.getElementById('close-modal');
-
-        // Exibe o modal automaticamente ao carregar a página
-        window.onload = () => {
-            document.body.classList.add('modal-active');
-        };
-
-        // Fechar o modal ao clicar no botão OK
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.classList.remove('modal-active');
-        });
-
-        textInput.addEventListener('input', () => {
-            output.textContent = textInput.value || 'Texto Exemplo';
-        });
-
-        fontSizeInput.addEventListener('input', () => {
-            output.style.fontSize = fontSizeInput.value + 'px' || '2em';
-        });
-
-        colorInput.addEventListener('input', () => {
-            const selectedColor = colorInput.value;
-            colorButton.style.backgroundColor = selectedColor;
-        });
-    </script>
 </body>
 </html>

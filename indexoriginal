@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizador de Texto e Botão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            position: relative;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image-container {
+            position: relative; /* Habilita o posicionamento absoluto dentro */
+            margin-bottom: 20px;
+            width: calc(100% - 100px); /* Ajuste a largura conforme necessário */
+        }
+
+        .bottom-image-container {
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        .bottom-image-container img {
+            width: 100%;
+            height: 250;
+        }
+
+        .inputs {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .inputs input[type="text"],
+        .inputs input[type="number"],
+        .inputs input[type="color"] {
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        #output {
+            position: absolute;
+            bottom: 580px; /* Distância em relação à parte inferior da imagem */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 4em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        /* Estilo do botão com borda circular */
+        #color-button {
+            position: absolute;
+            bottom: 200px; /* Distância em relação à parte inferior da imagem */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 66px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 30px; /* Borda arredondada */
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10; /* Traz o botão para frente */
+        }
+
+        /* Estilo para o pop-up */
+        .modal {
+            display: block; /* Mostra o modal por padrão */
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escurecido */
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .modal-content p {
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Desabilitar rolagem quando o modal estiver ativo */
+        body.modal-active {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contêiner para as duas imagens superiores -->
+    <div class="container">
+        <!-- Imagem da esquerda -->
+        <div class="image-container">
+            <img src="src/tela.png" alt="Imagem Esquerda">
+        </div>
+
+        <!-- Imagem da direita com botão e texto fixos -->
+        <div class="image-container">
+            <img src="src/tela2.png" alt="Imagem Direita">
+            <button id="color-button">Pagar</button>
+            <div id="output">Texto Exemplo</div>
+        </div>
+
+        <!-- Imagem inferior com inputs -->
+        <div class="bottom-image-container">
+            <img src="src/input.png" alt="Imagem Inferior">
+            <div class="inputs">
+                <div class="input-container">
+                    <label for="text-input">Texto:</label>
+                    <input type="text" id="text-input" placeholder="Digite seu texto aqui">
+                </div>
+
+                <div class="input-container">
+                    <label for="font-size-input">Tamanho da Fonte (px):</label>
+                    <input type="number" id="font-size-input" placeholder="Ex: 20" min="10" max="100">
+                </div>
+
+                <div class="input-container">
+                    <label for="color-input">Cor do Botão:</label>
+                    <input type="color" id="color-input" value="#00ff00">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>Bem-vindo ao site!<br><br>
+                 Use os campos abaixo para mudar a cor do botão, e também o conteúdo e o tamanho do texto. Ajuste para que fiquem parecidos com a tela de pagamento à esquerda.<br><br>
+                Clique "OK" para continuar.</p>
+            <button id="close-modal">OK</button>
+        </div>
+    </div>
+
+    <script>
+        const textInput = document.getElementById('text-input');
+        const fontSizeInput = document.getElementById('font-size-input');
+        const colorInput = document.getElementById('color-input');
+        const output = document.getElementById('output');
+        const colorButton = document.getElementById('color-button');
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('close-modal');
+
+        // Exibe o modal automaticamente ao carregar a página
+        window.onload = () => {
+            document.body.classList.add('modal-active');
+        };
+
+        // Fechar o modal ao clicar no botão OK
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.classList.remove('modal-active');
+        });
+
+        textInput.addEventListener('input', () => {
+            output.textContent = textInput.value || 'Texto Exemplo';
+        });
+
+        fontSizeInput.addEventListener('input', () => {
+            output.style.fontSize = fontSizeInput.value + 'px' || '2em';
+        });
+
+        colorInput.addEventListener('input', () => {
+            const selectedColor = colorInput.value;
+            colorButton.style.backgroundColor = selectedColor;
+        });
+    </script>
+</body>
+</html>

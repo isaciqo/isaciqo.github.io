@@ -1,125 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    <!-- Parabéns, você está no caminho certo!! Tente procurar onde fica a caixa de inputs -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout com Três Quadrados Personalizados</title>
     <style>
-        /* Reseta as margens e o padding, e ajusta o box-sizing para incluir bordas e padding no tamanho total */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        /* Define as configurações de estilo do corpo da página */
         body {
-            display: flex; /* Torna o corpo um contêiner flex */
-            justify-content: center; /* Centraliza horizontalmente o contêiner na tela */
-            align-items: center; /* Centraliza verticalmente o contêiner na tela */
-            min-height: 10vh; /* Define a altura mínima da página para ocupar toda a altura da tela */
-            background-color: #f0f0f0; /* Define a cor de fundo da página */
-            font-family: Arial, sans-serif; /* Define a fonte padrão da página */
+            display: flex; 
+            justify-content: center;
+            align-items: center; 
+            min-height: 10vh; 
+            background-color: #1E1E1E;
+            font-family: Arial, sans-serif;
         }
 
-        /* Define o estilo do contêiner que contém as caixas */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Define duas colunas de tamanhos iguais */
-            grid-template-rows: 1fr 2fr;   /* Define as linhas da grade */
-            column-gap: 200px;  /* Espaço entre os quadrados 1 e 2 */
-            row-gap: 0;        /* Sem espaço entre os quadrados 1, 2 e o quadrado 3 */
-            width: 100%;  /* Largura máxima da grade */
-            max-width: 1000px; /* Largura máxima quando a tela é maior */
-            height: 100px; /* Altura do contêiner */
-            margin-top: 10px; /* Espaço entre o topo da página e as caixas */
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 2fr;  
+            column-gap: 200px;  
+            row-gap: 0;       
+            width: 100%;  
+            max-width: 1000px; 
+            height: 100px; 
+            margin-top: 10px;
         }
 
 
-        /* Estilo específico para a primeira caixa */
         .box1 {
-            position: relative; /* Torna o box2 o contêiner de referência para os elementos absolutos */
-            display: flex; /* Flexbox para centralizar a imagem */
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
+            position: relative; 
+            display: flex; 
+            justify-content: center;
+            align-items: center; 
             height: 100%;
+            width: 110%;
         }
-        /* Imagem no box2 */
         .box1 img {
-            width: 70%; /* A imagem ocupa 100% da largura da caixa */
-            height: auto; /* Mantém a proporção da imagem */
+            width: 70%; 
+            height: auto;
         }
 
-        /* Estilo específico para a segunda caixa */
         .box2 {
-            position: relative; /* Torna o box2 o contêiner de referência para os elementos absolutos */
-            display: flex; /* Flexbox para centralizar a imagem */
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
             height: 100%;
+            width: 110%;
         }
 
-        /* Imagem no box2 */
         .box2 img {
-            width: 74%; /* A imagem ocupa 100% da largura da caixa */
-            height: auto; /* Mantém a proporção da imagem */
+            width: 74%; 
+            height: auto;
         }
 
-        /* Botão com estilo */
 
         
         #color-button {
-            position: absolute; /* Posiciona o botão sobre a imagem */
-            bottom: 12px; /* Alinha o botão 20px acima da parte inferior da caixa */
-            left: 50%; /* Centraliza o botão horizontalmente */
-            transform: translateX(-50%); /* Ajusta a posição para que o centro do botão seja o ponto de referência */
-            padding: 6px 60px; /* Tamanho do botão */
-            background-color: #3498db; /* Cor do botão */
-            color: white; /* Cor do texto do botão */
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 6px 60px; 
+            background-color: #3498db;
+            color: white; 
             border: none;
-            border-radius: 30px; /* Borda arredondada */
+            border-radius: 30px; 
             font-size: 0.8em;
             cursor: pointer;
-            z-index: 10; /* Traz o botão para frente */
+            z-index: 10;
         }
 
-        /* Texto sobre a imagem no box2 */
         #output {
-            position: absolute; /* Posiciona o texto sobre a imagem */
-            top: 70px; /* Alinha o texto 20px a partir do topo da caixa */
-            left: 50%; /* Centraliza o texto horizontalmente */
-            transform: translateX(-50%); /* Ajusta a posição para que o centro do texto seja o ponto de referência */
-            color: white; /* Cor do texto */
-            font-size: 1.5em; /* Tamanho do texto */
-            font-weight: bold; /* Negrito */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto */
-            z-index: 10; /* Traz o texto para frente */
+            position: absolute; 
+            top: 80px; 
+            left: 50%; 
+            transform: translateX(-50%);
+            color: #FFBABA; 
+            font-size: 1.5em;
+            z-index: 10; 
         }
 
-        /* Estilo específico para a terceira caixa */
         .box3 {
 
-            display: flex; /* Usa flexbox para alinhar o conteúdo da caixa */
-            justify-content: center; /* Centraliza o conteúdo horizontalmente */
-            align-items: center; /* Centraliza o conteúdo verticalmente */
-            color: rgb(0, 0, 0); /* Define a cor do texto */
-            font-size: 1.5em; /* Define o tamanho da fonte */
-            height: 100%; /* A caixa ocupa todo o espaço disponível em altura */
-            grid-column: 1 / -1; /* Faz a caixa ocupar a largura de ambas as colunas */
-            position: relative; /* Torna o box2 o contêiner de referência para os elementos absolutos */
+            display: flex; 
+            justify-content: center;
+            align-items: center; 
+            color: rgb(0, 0, 0);
+            font-size: 1.5em; 
+            height: 100%; 
+            grid-column: 1 / -1;
+            position: relative;
         }
         
 
-        /* Estilo para o pop-up */
         .modal {
-            display: block; /* Mostra o modal por padrão */
+            display: block; 
             position: fixed;
             z-index: 100;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fundo escurecido */
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
         .modal-content {
@@ -152,7 +142,6 @@
             background-color: #2980b9;
         }
 
-        /* Desabilitar rolagem quando o modal estiver ativo */
         body.modal-active {
             overflow: hidden;
         }
@@ -182,56 +171,58 @@
             font-size: 1em;
         }
 
-        /* Limita a altura e a proporção em telas maiores que 1600px */
+        .linkForms {
+            display: none 
+        }
+
         @media (min-width: 1600px) {
             .container {
-                max-height: 700px; /* Limita a altura máxima do contêiner em telas muito grandes */
+                max-height: 700px;
             }
 
             .box1, .box2, .box3 {
-                height: 100%; /* As caixas ainda ocupam toda a altura */
+                height: 100%; 
             }
         }
 
-        /* Responsividade para telas menores */
         @media (max-width: 960px) {
             .container {
-                grid-template-columns: 1fr 1fr; /* Mantém duas colunas, mesmo em telas pequenas */
-                grid-template-rows: auto auto; /* Duas linhas: uma para as caixas 1 e 2, e outra para a caixa 3 */
-                height: auto; /* Ajusta a altura automaticamente, conforme o conteúdo */
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                height: auto;
             }
 
-            /* Ajuste das caixas 1 e 2 para manterem a proporção adequada */
             .box1, .box2 {
-                width: 100%; /* As caixas ocupam a largura total disponível */
-                height: 300px; /* Define uma altura mínima razoável para as caixas em telas pequenas */
+                width: 100%; 
+                height: 300px; 
             }
 
-            /* A terceira caixa permanece ocupando toda a largura abaixo das duas primeiras */
             .box3 {
-                grid-column: 1 / -1; /* Continua ocupando a largura das duas colunas */
+                grid-column: 1 / -1; 
             }
         }
+
+
     </style>
 </head>
 <body>
 
-    <!-- Contêiner principal que agrupa as caixas -->
     <div class="container">
-        <!-- Caixa 1, com classe específica para personalização -->
+        <!--Quase lá! Só mais um pouco!-->
         <div class="box1">
-            <img src="src/tela1.png" alt="Imagem Esquerda">
+            <img src="src/telaOK.png" alt="Imagem Esquerda">
         </div>
-        <!-- Caixa 2, com classe específica para personalização -->
         <div class="box2">
-            <img src="src/tela22.png" alt="Imagem Direita">
+            <img src="src/telaOK2.png" alt="Imagem Direita">
             <button id="color-button">Pagar</button>
             <div id="output">Texto Exemplo</div>
         </div>
-        <!-- Caixa 3, com classe específica para personalização -->
         <div class="box3">
             <img src="src/input.png" alt="Imagem Inferior">
             <div class="inputs">
+                <!--Isso ai!! Parabéns você encontrou o segredo, agora mande um print com essa msg, para o forms    -->
+                
+                <div class="linkForms"> https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=AlpZNW1NrESZ4fmrTNhy2xmXZeBpjeBGpYuIdwpSlEtUNFRHQVkyWVhRWFI2U1JTMVZOR1MwSlJUSC4u&Token=b29af5eb6f5f4c08afbc80089945416a </div>
                 <div class="input-container">
                     <label for="text-input">Texto:</label>
                     <input type="text" id="text-input" placeholder="Digite seu texto aqui">
@@ -250,7 +241,7 @@
         </div>
     </div>
 
-    <!-- Pop-up Modal -->
+
     <div id="modal" class="modal">
         <div class="modal-content">
             <p>Bem-vindo ao site!<br><br>
@@ -269,12 +260,10 @@
         const modal = document.getElementById('modal');
         const closeModal = document.getElementById('close-modal');
 
-        // Exibe o modal automaticamente ao carregar a página
         window.onload = () => {
             document.body.classList.add('modal-active');
         };
 
-        // Fechar o modal ao clicar no botão OK
         closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
             document.body.classList.remove('modal-active');

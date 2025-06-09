@@ -1,0 +1,412 @@
+/* Estilos Globais */
+body {
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 80px;
+    overflow-x: hidden;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-content {
+    flex: 1; /* Ocupa todo o espaço disponível */
+}
+
+/* Header Fixo */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo com círculo */
+.logo span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+}
+
+.logo span i.fa-circle {
+    font-size: 0.5em;
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.logo .profession {
+    font-size: 0.9em;
+    color: #666;
+    margin-left: 15px;
+}
+
+/* Menu alinhado à direita */
+.right-nav ul {
+    justify-content: flex-end;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Hero Section - Com animações */
+.hero-section {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(90vh - 80px);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Container da imagem com efeito hover */
+.profile-image-container {
+    flex-shrink: 0;
+    margin-top: -20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    transform: translateX(-100px);
+    opacity: 0;
+    animation: slideIn 1s forwards 0.3s;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.profile-image.secondary {
+    opacity: 0;
+}
+
+/* Efeito hover para versão com duas fotos */
+.profile-image-container:hover .profile-image.primary {
+    opacity: 0;
+}
+
+.profile-image-container:hover .profile-image.secondary {
+    opacity: 1;
+}
+
+/* Estilos para a versão com GIF (descomente no HTML para usar) */
+/*
+.profile-image.gif {
+    opacity: 0;
+}
+
+.profile-image-container:hover .profile-image.primary {
+    opacity: 0;
+}
+
+.profile-image-container:hover .profile-image.gif {
+    opacity: 1;
+}
+*/
+
+.text-content h1 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.about-me h2 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+.about-me p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Botões com animação individual */
+.links-buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 22px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Animações individuais para cada botão */
+.resume-btn {
+    animation: fadeInUp 0.5s forwards 0.8s;
+    background-color: #4c93af;
+}
+.research-btn {
+    animation: fadeInUp 0.5s forwards 1.0s;
+    background-color: #4c63af;
+}
+.outreach-btn {
+    animation: fadeInUp 0.5s forwards 1.2s;
+    background-color: #4c53af;
+}
+.personal-btn {
+    animation: fadeInUp 0.5s forwards 1.4s;
+    background-color: #664caf;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    opacity: 0.9;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* === Timeline de Experiência Profissional === */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 0;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item.left {
+    flex-direction: row;
+}
+
+.timeline-item.right {
+    flex-direction: row-reverse;
+}
+
+.timeline-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.timeline-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.timeline-content {
+    background-color: #ffffff;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    color: #333;
+    max-width: 600px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 5px;
+    color: #2c3e50;
+    font-size: 1.2em;
+}
+
+.timeline-content h4 {
+    margin: 0 0 10px;
+    font-weight: 500;
+    color: #777;
+    font-size: 1em;
+}
+
+.timeline-content p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.timeline-content small {
+    color: #888;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.timeline-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeline-stack span {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    font-size: 0.8em;
+}
+
+/* Estilo para link ativo no menu */
+nav ul li a.active {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+}
+
+/* Animações */
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .right-nav ul {
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .profile-image-container {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+        transform: translateX(0);
+        animation: none;
+        opacity: 1;
+    }
+
+    .text-content h1 {
+        font-size: 2.2em;
+    }
+
+    .links-buttons {
+        justify-content: center;
+    }
+    
+    .button {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isac Oliveira - Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/projetos.css">
+</head>
+<body>
+  <header class="fixed-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo-link">
+        <div class="logo">
+            <span><i class="fas fa-circle"></i> Isac Oliveira</span>
+            <span class="profession">Backend Developer</span>
+        </div>
+      </a>
+      <nav class="right-nav">
+        <ul>
+          <li><a href="docs/Isac_Oliveira_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+          <li><a href="ProfessionalTimeline.html">Professional timeline</a></li>
+          <li><a href="projects.html">project</a></li>
+          <li><a href="#personal">Pessoal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <section class="projects-section">
+      <h1>Projects</h1>
+      <div id="projects" class="projects-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="current-year"></span> Isac Oliveira. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/projetos.js"></script>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: white;
+  }
+
+  .logo-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  .timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: 1;
+  }
+
+  .timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+  }
+
+  .timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-item.left {
+    right: 8.07%;
+    z-index: 5; /* acima da linha */
+  }
+
+  .timeline-item.right {
+    left: 50%;
+    z-index: 5; /* acima da linha */
+  }
+
+  .timeline-content {
+    background-color: #fcfcfc;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    color: #fff;
+    z-index: 5; /* acima da linha */
+  }
+
+  .timeline-img {
+    position: absolute;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background: #ececec;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 5; /* acima da linha */
+  }
+
+  .timeline-img.date-left {
+    left: auto;
+    right: 100%;
+    margin-right: -25px;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .timeline-img.date-right {
+    left: 100%;
+    margin-left: -20px;
+    right: auto;
+    position: absolute;     /* necessário para z-index funcionar */
+    z-index: 10;            /* valor maior que os elementos que estão por cima */
+  }
+
+  .timeline-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;     /* necessário para z-index funcionar */
+    z-index: 10;  
+  }
+
+  .timeline-content h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+    color: #000000;
+  }
+
+  .timeline-content h4 {
+    margin: 5px 0 10px;
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #000000;
+  }
+
+  .timeline-content p {
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  .stack span {
+    background-color: #3357f8;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    white-space: nowrap;
+  }
+
+  /* Linha central */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    background-color: #014092be;
+    top: 0;
+    bottom: 0; /* <- garante que vá até o final do container */
+    z-index: 1;
+  }
+
+  .research-container {
+    position: relative; /* <- importante para a linha ficar relativa a este container */
+    padding: 60px 20px;
+  }
+
+
+  .timeline-date-text {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #ffffffe7;
+    color: #000000;
+    padding: 6px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .timeline-date-text.date-left {
+    left: -250px; /* ajuste conforme necessário */
+    top: 20px;
+  }
+  
+  .timeline-date-text.date-right {
+    right: -230px;
+    top: 30px;
+  }
+  

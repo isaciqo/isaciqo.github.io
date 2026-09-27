@@ -1,33 +1,44 @@
 const timelineData = [
   {
-    company: "PagoNxt - A Santander company",
-    title: "IT Analyst Jr | Backend Developer",
-    description: "PagoNxt is a payments fintech company from the Santander group, owner of Getnet and Super Digital, together  they operate in the financial market and operate in the payments and acquiring segment, in 2022 they were responsible for processing more than 90 billion in payments.\n\n Software Engineer specializing in API development and maintenance, designing high-performance systems handling 10M+ daily requests for global clients like Amazon and Shopee.",
-    startDate: "Dezember 2022",
-    endDate: "current",
+    company: "Trustly",
+    title: "Software Engineer",
+    description: "Global fintech and payments company.\n\nBackend engineering for the Backoffice team, working on merchant-facing and internal platforms supporting payment operations. Refactored the Merchant Portal report-generation architecture, delivered critical-priority security remediation across merchant authentication flows, decoupled the Consumer Portal frontend from the server for independent deployments, contributed to the MVP architecture of an internal messaging and email platform, and introduced automation and AI-assisted engineering practices.",
+    startDate: "May 2026",
+    endDate: "Present",
     stack: [
-      "JavaScript", "TypeScript", "Node.js",
-      "Express.js", "REST APIs", "MongoDB", "Azure", "Jest",
-      "CI/CD", "Docker", "GitHub", "RabbitMQ"
+      "Java", "Spring Boot", "Golang", "Node.js", "TypeScript",
+      "MongoDB", "PostgreSQL", "MySQL", "RabbitMQ", "AWS", "Docker", "Microservices"
+    ],
+    logo: "https://www.google.com/s2/favicons?domain=trustly.com&sz=128"
+  },
+  {
+    company: "PagoNxt - A Santander company",
+    title: "Software Engineer",
+    description: "Global fintech platform processing more than $90B in annual transactions.\n\nBuilt and maintained backend APIs and integrations in Golang and Node.js for high-volume payment clients and enterprise customers, developed asynchronous processing pipelines with RabbitMQ and event-driven architecture, and investigated complex production and integration issues across distributed services and multiple data stores.",
+    startDate: "December 2022",
+    endDate: "May 2026",
+    stack: [
+      "Golang", "Node.js", "TypeScript", "MongoDB",
+      "MySQL", "RabbitMQ", "Docker", "AWS"
     ],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPh9xRSMPjrN2LdY3P0ZtRWeYCfbtPYPnXXQ&s"
   },
   {
     company: "Alubar",
-    title: "Product Engineer ",
-    description: "The largest aluminum cable producer in Latin America, supplying 63% of Brazil’s transmission cables and powering critical infrastructure projects across the region. \n As product engineer, I spearheaded data-driven and technology innovations in aluminum cable manufacturing, leveraging AI and software solutions to reduce waste and optimize pricing strategies.",
+    title: "Product Engineer",
+    description: "Developed backend systems and API integrations for process automation, built data extraction and automation solutions interacting with web-based systems, and optimized data workflows and databases. Collaborated with business and technical stakeholders to translate operational problems into software solutions.",
     startDate: "March 2021",
-    endDate: "Dezember 2022",
-    stack: ["Node.js", "Express", "MongoDB", "Docker", "CI/CD", "Postman", "SQL", "Web Scraping", "Power BI", "PMBOK"],
+    endDate: "December 2022",
+    stack: ["Node.js", "PostgreSQL", "MySQL", "MongoDB", "REST APIs", "Automation"],
     logo: "https://www.alubar.net.br/img/site/landpage/icons/logo-nova.svg"
   },
   {
-    company: "Equatorial Energy",
-    title: "Backend Developer internship ",
-    description: "As a intern, I designed and implemented automation solutions to streamline data analysis and decision-making processes, while enhancing team collaboration through clear communication and problem-solving leadership.",
+    company: "Equatorial Energia",
+    title: "Software Engineering Intern",
+    description: "Developed monitoring dashboards and automation solutions, supported system architecture design and technical documentation, and contributed to improvements of legacy processes in an Agile environment.",
     startDate: "October 2019",
     endDate: "March 2021",
-    stack: ["Node.js", "Express", "SQL", "Web Scraping", "Power BI", "Java", "KPI-driven decision-making"],
+    stack: ["Node.js", "SQL", "Java", "Power BI", "Automation", "Agile"],
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Equatorial-logo.svg/673px-Equatorial-logo.svg.png"
   }
 ];

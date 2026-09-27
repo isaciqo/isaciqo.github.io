@@ -1,5 +1,13 @@
 const projetos = [
     {
+        nome: "CliniQ",
+        descricao: "A medical practice management platform for doctors in Brazil, bringing appointment scheduling, patient records, and financial management together in a single place.",
+        imagem: "images/cliniq.png",
+        imagemFundo: "#1f6fe0",
+        tags: ["Healthcare", "SaaS", "Scheduling", "Finance", "Patient Management"],
+        link: "https://cliniqbrasil.com"
+    },
+    {
         nome: "TableRise",
         descricao: "A platform designed to help junior developers gain experience while offering a dynamic and intuitive environment for RPG lovers to manage and enjoy their campaigns. TableRise provides essential tools for running simple to complex RPG games with friends, aiming for a cozy and immersive experience.",
         imagem: "https://avatars.githubusercontent.com/u/133263521?s=200&v=4",
@@ -32,7 +40,7 @@ const projetos = [
     card.className = "project-card";
   
     card.innerHTML = `
-      <img src="${proj.imagem}" alt="${proj.nome}">
+      <img src="${proj.imagem}" alt="${proj.nome}"${proj.imagemFundo ? ` style="object-fit: contain; background-color: ${proj.imagemFundo};"` : ""}>
       <div class="project-content">
         <h2>${proj.nome}</h2>
         <p>${proj.descricao}</p>
@@ -42,7 +50,7 @@ const projetos = [
       </div>
       <div class="project-buttons">
         <a href="${proj.link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> VISIT</a>
-        <a href="${proj.repo}" target="_blank"><i class="fa-brands fa-github"></i> SOURCE</a>
+        ${proj.repo ? `<a href="${proj.repo}" target="_blank"><i class="fa-brands fa-github"></i> SOURCE</a>` : ""}
       </div>
     `;
   
